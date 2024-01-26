@@ -1,5 +1,7 @@
 package _00_Intro_to_Sorting_Algorithms;
 
+import java.util.Random;
+
 import processing.core.PApplet;
 
 /*
@@ -38,22 +40,62 @@ import processing.core.PApplet;
  *     mousePressed variable
  */
 public class _03_VisualArraySorter extends PApplet {
-    static final int WIDTH = 600;
-    static final int HEIGHT = 400;
+    static final int WIDTH = 500;
+    static final int HEIGHT = 500;
+    
+    int ArrLength = 125;
+    int[] Arr;
 
     @Override
     public void settings() {
-        
+        size(WIDTH, HEIGHT);
     }
 
     @Override
     public void setup() {
-        
+        Arr = new int[ArrLength];
+        for (int i = 0; i < Arr.length; i++) {
+        	Arr[i] = new Random().nextInt(HEIGHT);
+        }
+        noStroke();
     }
 
     @Override
     public void draw() {
+        background(0, 0, 0);
+        fill(255, 0, 0);
+        for (int i = 0; i < Arr.length; i++) {
+			rect(i * (WIDTH / Arr.length), HEIGHT - Arr[i], WIDTH / Arr.length, Arr[i]);
+		}
         
+        stepSort(Arr);
+    }
+    
+    public void reset(int[] arr)
+    {
+        for (int i = 0; i < arr.length; i++) {
+        	arr[i] = new Random().nextInt(HEIGHT);
+        }
+    }
+    
+    public void resetSmooth(int[] arr)
+    {
+    	//double[] tempArr = new double[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+        	arr[i] = (int)(((double)(i + 1) * (double)HEIGHT) / (double)arr.length);
+        }
+        for (int i = 0; i < arr.length; i++) {
+			int randomIndexToSwap = new Random().nextInt(arr.length);
+			int temp = arr[randomIndexToSwap];
+			arr[randomIndexToSwap] = arr[i];
+			arr[i] = temp;
+		}
+    }
+    
+    @Override
+    public void mousePressed() {
+    	// TODO Auto-generated method stub
+    	resetSmooth(Arr);
     }
 
     static public void main(String[] passedArgs) {
