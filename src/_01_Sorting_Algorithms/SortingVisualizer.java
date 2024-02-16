@@ -79,5 +79,6 @@ public class SortingVisualizer extends JLabel{
             array[i] = randGen.nextInt(MAX);
         }
         updateDisplay();
+    	//double[] tempArr = new double[arr.length];
     }
 }
