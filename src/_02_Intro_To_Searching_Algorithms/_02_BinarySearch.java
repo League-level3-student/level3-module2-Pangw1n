@@ -20,7 +20,7 @@ public class _02_BinarySearch {
     	int start = 0;
     	int end = array.length - 1;
     	
-    	while (start != end)
+    	while (end != start)
     	{
     		int mid = start + ((end - start) / 2);
     		if (array[mid] == value)
@@ -29,14 +29,22 @@ public class _02_BinarySearch {
     		}
     		else if (array[mid] < value)
     		{
-    			start = mid;
+    			start = mid + 1;
     		}
-    		else
+    		else if (array[mid] > value)
     		{
-    			end = mid;
+    			end = mid - 1;
     		}
     	}
-    	
+    	int mid = start;
+		if (array[mid] == value)
+		{
+			return mid;
+		}
+		else
+		{
+			return -1;
+		}
             // 3. create an integer called mid and set it equal
             //    to the half way point between start and end
 
@@ -52,6 +60,5 @@ public class _02_BinarySearch {
             //    method. Use mid + 1 as the start, and pass in end.
 
         // 7. return -1 because the value was not found
-        return -1;
     } 
 }

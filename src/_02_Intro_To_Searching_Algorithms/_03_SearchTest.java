@@ -24,7 +24,7 @@ class _03_SearchTest {
         //    remember that the array must be sorted
     	int[] arr = {2, 3, 5, 7, 8};
         
-    	int value = new _02_BinarySearch().binarySearch(arr, 8);
-        assertEquals(value, 4);
+    	int value = new _02_BinarySearch().binarySearch(arr, 7);
+        assertEquals(value, 3);
     }
 }
