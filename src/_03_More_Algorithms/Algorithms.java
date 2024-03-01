@@ -111,4 +111,55 @@ public class Algorithms {
     		return false;
     	}
     }
+    
+    public static List<Double> sortScores(List<Double> scores)
+    {
+    	for (int i = 0; i < scores.size(); i++)
+    	{
+    		for (int j = 0; j < scores.size() - 1; j++)
+    		{
+    			if (scores.get(j) > scores.get(j + 1))
+    			{
+    				double temp = scores.get(j);
+    				scores.set(j, scores.get(j + 1));
+    				scores.set(j + 1, temp);
+    			}
+    		}
+    	}
+		return scores;
+    }
+    
+    public static List<String> sortDNA(List<String> DNA)
+    {
+    	for (int i = 0; i < DNA.size(); i++)
+    	{
+    		for (int j = 0; j < DNA.size() - 1; j++)
+    		{
+    			if (DNA.get(j).length() > DNA.get(j + 1).length())
+    			{
+    				String temp = DNA.get(j);
+    				DNA.set(j, DNA.get(j + 1));
+    				DNA.set(j + 1, temp);
+    			}
+    		}
+    	}
+    	return DNA;
+    }
+    
+    public static List<String> sortWords(List<String> names)
+    {
+    	for (int i = 0; i < names.size(); i++)
+    	{
+    		for (int j = 0; j < names.size() - 1; j++)
+    		{
+    			if (names.get(j).compareTo(names.get(j + 1)) > 0)
+    			{
+    				String temp = names.get(j);
+    				names.set(j, names.get(j + 1));
+    				names.set(j + 1, temp);
+    			}
+    		}
+    	}
+    	return names;
+    }
 }
